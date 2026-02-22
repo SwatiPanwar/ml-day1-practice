@@ -51,3 +51,10 @@ Decision Tree:
 * Overfitting = always check with **unseen/test data**.
 * Ensemble methods = reduce overfitting, improve generalization.
 
+sklearn -> Classical ML models & utilities -> Load dataset -> Preprocess -> Train model -> Predict -> Evaluate
+sklearn.datasets.load_iris -> Load standard ML dataset (Iris) -> Dataset -> Features(X) & Labels(y)
+sklearn.tree.DecisionTreeClassifier -> Build classification tree -> X_train, y_train -> Fit -> Predict
+sklearn.tree.plot_tree -> Visualize decision tree -> Fitted tree -> plot -> inspect splits
+sklearn.model_selection.train_test_split -> Split data into train & test -> X, y -> train_test_split -> X_train, X_test, y_train, y_test
+matplotlib.pyplot -> Plot graphs & visualizations -> Data/model -> plt.plot/plt.show -> Analyze
+
