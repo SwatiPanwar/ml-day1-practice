@@ -1,0 +1,36 @@
+1) Classification Kya Hota Hai?
+Classification ka matlab data ko categories (labels) me divide karna.
+Example: Spam/Not Spam, Pass/Fail, Disease/No Disease.
+
+2) Logistic Regression Kya Hai?
+Ye ek classification algorithm hai jo probability (0 se 1 ke beech) nikalta hai.
+Sigmoid Function use hota hai:
+1 / (1 + e^-x)
+Rule: Probability > 0.5 = Class 1, < 0.5 = Class 0
+
+3) Accuracy Kya Hai?
+Accuracy = Correct Predictions / Total Predictions
+Ye batata hai kitni predictions sahi thi.
+Note: Imbalanced data me accuracy misleading ho sakti hai.
+
+4) Confusion Matrix
+Actual vs Predicted ka table hota hai:
+TP - True Positive (Sahi Positive)
+TN - True Negative (Sahi Negative)
+FP - False Positive (Galat Positive)
+FN - False Negative (Galat Negative)
+
+5) Important Metrics
+Precision = TP / (TP + FP)
+Recall = TP / (TP + FN)
+
+F1 Score = Precision & Recall ka balance
+6) Logistic Regression Flow
+1. Data Cleaning
+2. Train-Test Split
+3. Model Create
+4. Fit Model
+5. Predict
+6. Evaluate (Accuracy + Confusion Matrix)
+Quick Revision Trick:
+Linear -> Sigmoid -> Probability -> Class
