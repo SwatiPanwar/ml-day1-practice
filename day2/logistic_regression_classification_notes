@@ -24,6 +24,7 @@ FN - False Negative (Galat Negative)
 Precision = TP / (TP + FP)
 Recall = TP / (TP + FN)
 
+
 F1 Score = Precision & Recall ka balance
 6) Logistic Regression Flow
 1. Data Cleaning
@@ -34,6 +35,11 @@ F1 Score = Precision & Recall ka balance
 6. Evaluate (Accuracy + Confusion Matrix)
 Quick Revision Trick:
 Linear -> Sigmoid -> Probability -> Class
+
+Confusion Matrix = 'Actual vs Predicted ka table'
+Precision = 'Jo bola positive wo kitna sahi'
+Recall = 'Jo sach me positive the, kitne pakde'
+F1 = 'Precision & Recall ka combined score'
 
 Ek Easy Yaad Karne Ka Trick
 Precision → Jab bola positive, kitna sahi?
