@@ -34,3 +34,8 @@ F1 Score = Precision & Recall ka balance
 6. Evaluate (Accuracy + Confusion Matrix)
 Quick Revision Trick:
 Linear -> Sigmoid -> Probability -> Class
+
+Ek Easy Yaad Karne Ka Trick
+Precision → Jab bola positive, kitna sahi?
+Recall → Jo sach me positive the, kitne pakde?
+F1 → Dono ka combined score
