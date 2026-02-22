@@ -1,0 +1,53 @@
+## Decision Tree & Overfitting Notes
+
+### 1️⃣ Decision Tree
+
+* Tree-like structure to split data based on questions/conditions.
+* Each node = question (e.g., Age > 30?)
+* Each branch = answer (Yes/No)
+* Leaf node = final decision/class (e.g., Will Buy/Not Buy)
+
+**Example:**
+
+| Age | Income | Buy? |
+| --- | ------ | ---- |
+| 25  | High   | No   |
+| 35  | High   | Yes  |
+| 40  | Low    | Yes  |
+| 20  | Low    | No   |
+
+Decision Tree:
+
+```
+      Age > 30?
+       /    \
+     Yes     No
+     /        \
+  Income>50k?   No
+   /    \
+  Yes    No
+ Yes     Yes
+```
+
+### 2️⃣ Overfitting
+
+* Model **memorizes training data** instead of learning patterns.
+* Deep tree = high training accuracy, poor test accuracy.
+* Example: Adding too many conditions (Age, Income, Gender, Hobby, etc.)
+* Overfitting = "Data ka student, teacher ki book se jyada yaad kar raha hai, concept samjhe bina"
+
+### 3️⃣ Solutions to Overfitting
+
+1. Limit **max depth** of the tree
+2. Set **minimum samples per leaf/node**
+3. **Pruning** extra branches (noise-based)
+4. Use **ensemble methods** like Random Forest or Gradient Boosting
+
+---
+
+**Tips:**
+
+* Decision Tree = easy to understand, visualize.
+* Overfitting = always check with **unseen/test data**.
+* Ensemble methods = reduce overfitting, improve generalization.
+
