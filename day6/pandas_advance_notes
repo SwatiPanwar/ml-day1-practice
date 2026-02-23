@@ -80,3 +80,26 @@ df['Salary'] = df['Salary'].interpolate()
 | Interpolation         | `df['col'].interpolate()`            | Smooth numeric fill                |
 | Conditional fill      | `apply + lambda + isnull`            | Custom logic fill                  |
 
+df['Salary'].interpolate() → missing salary ko neighbors se fill
+df['Age'].apply(lambda x: 20 if pd.isnull(x) else x) → agar age missing ho to 20 daal do
+
+3️⃣ Lambda ke Benefits
+Short & clean → ek line me kaam ho jata hai
+Flexible → custom logic easily define kar sakte ho
+No function name needed → temporary, sirf use ke liye
+💡 Agar simple rule hai → lambda best
+💡 Agar complex multiple line logic hai → normal def function better
+
+Lambda Version (1 line)
+df['Age'] = df['Age'].apply(lambda x: 20 if pd.isnull(x) else x)
+
+Normal Function Version (4 lines)
+def fill_age(x):
+    if pd.isnull(x):
+        return 20
+    else:
+        return x
+
+df['Age'] = df['Age'].apply(fill_age)
+
+Dono same result dega, par lambda me time aur space dono bach jata hai.
