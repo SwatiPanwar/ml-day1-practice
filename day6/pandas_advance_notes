@@ -1,0 +1,82 @@
+# Day 8 - Pandas Advanced: Missing Values Handling
+
+## 1️⃣ Sample Data
+
+```python
+import pandas as pd
+
+data = {
+    'Name': ['Swati', 'Amit', 'Rina', None],
+    'Age': [25, None, 22, 28],
+    'City': ['Dubai', 'Delhi', None, 'Mumbai'],
+    'Salary': [5000, None, 4000, None]
+}
+
+df = pd.DataFrame(data)
+print(df)
+```
+
+## 2️⃣ Check Missing Values
+
+```python
+# True/False for missing values
+print(df.isnull())
+
+# Count missing per column
+print(df.isnull().sum())
+
+# Sort by missing count
+print(df.isnull().sum().sort_values(ascending=False))
+```
+
+## 3️⃣ Drop Missing Values
+
+```python
+# Drop rows with any missing value
+df_drop_row = df.dropna()
+
+# Drop columns with any missing value
+df_drop_col = df.dropna(axis=1)
+```
+
+## 4️⃣ Fill Missing Values
+
+```python
+# Fill with fixed value
+df['Age'] = df['Age'].fillna(0)
+
+# Fill with mean/median
+df['Salary'] = df['Salary'].fillna(df['Salary'].mean())
+
+# Forward fill (previous value)
+df['City'] = df['City'].fillna(method='ffill')
+
+# Backward fill (next value)
+df['City'] = df['City'].fillna(method='bfill')
+```
+
+## 5️⃣ Conditional / Custom Fill
+
+```python
+df['Age'] = df['Age'].apply(lambda x: 20 if pd.isnull(x) else x)
+```
+
+## 6️⃣ Interpolation (Numeric Only)
+
+```python
+df['Salary'] = df['Salary'].interpolate()
+```
+
+## 7️⃣ Quick Memory Cheat Sheet
+
+| Task                  | Function / Method                    | Tip                                |
+| --------------------- | ------------------------------------ | ---------------------------------- |
+| Check missing         | `df.isnull().sum()`                  | Kaunse column me kitna missing hai |
+| Drop row              | `df.dropna()`                        | Agar missing kam hai               |
+| Drop column           | `df.dropna(axis=1)`                  | Agar column mostly missing hai     |
+| Fill fixed            | `df.fillna(value)`                   | Quick fix                          |
+| Fill mean/median      | `df['col'].fillna(df['col'].mean())` | Numeric data ke liye best          |
+| Forward/Backward fill | `df['col'].fillna(method='ffill')`   | Time series me best                |
+| Interpolation         | `df['col'].interpolate()`            | Smooth numeric fill                |
+| Conditional fill      | `apply + lambda + isnull`            | Custom logic fill                  |
+
