@@ -1,0 +1,21 @@
+Step by Step Explanation
+
+Dataset: Small simulated telecom dataset.
+
+Train/Test Split: Model train + unseen data test.
+
+Feature Scaling: Logistic Regression sensitive to scale → StandardScaler use.
+
+Model + GridSearchCV:
+
+Hyperparameter grid = C + solver
+
+CV = 3 folds → evaluate each combination → best selected
+
+Test Evaluation: Check accuracy and report → real life: business confidence
+
+User Input Prediction:
+
+Input: tenure, charges, contract
+
+Model predicts churn → output friendly message
