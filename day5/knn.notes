@@ -94,3 +94,77 @@ Simple model = High Bias
 Complex model = High Variance
 
 Balance = Best ML Model
+----------------------------------------------------------
+
+📌 1️⃣ K Kya Decide Karta Hai?
+
+K = Kitne nearest neighbors consider karne hain prediction ke liye
+
+Small K → Detail zyada
+
+Large K → Smooth prediction
+
+📌 2️⃣ Rule of Thumb
+k = square root of N
+	
+N = Total training samples
+
+👉 Bas starting guess ke liye
+
+📌 3️⃣ Odd Number Kyun Choose Kare?
+
+Binary classification me tie avoid karne ke liye
+
+✔ K = 3, 5, 7
+❌ K = 2, 4 (tie ho sakta hai)
+
+📌 5️⃣ Golden Logic
+
+Small K
+→ Model complex
+→ Noise learn karega
+
+Large K
+→ Model simple
+→ Pattern miss karega
+----------------------------------------------------------
+
+🧠 Ultra Short Memory Trick
+
+K choose = √N se start
+
+Odd number lo
+
+Small K → Overfit
+
+Large K → Underfit
+
+Best K → Cross validation
+-----------------------------------------------------------
+
+📌 1️⃣ Cross Validation Kya Hai?
+
+Model ko multiple times different splits par test karna
+
+Purpose:
+✔ Best K choose karna
+✔ Overfitting avoid karna
+
+📌 2️⃣ Process
+
+Data ko folds me divide karo (e.g., 5 folds)
+
+Har fold ko ek baar test data banao
+
+Accuracy average karo
+
+Highest accuracy wala K select karo
+
+📌 3️⃣ Code Structure Idea
+
+for k in range(1,20):
+    model = KNN(k)
+    accuracy = cross_validation(model)
+    print(k, accuracy)
+
+✔ Highest accuracy → Best K
