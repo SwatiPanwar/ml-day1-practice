@@ -1,0 +1,143 @@
+📝 ML Quick Memory Notes (Handwritten Style)
+📌 KNN (K-Nearest Neighbors)
+
+👉 “Jo paas hoga, wahi decide karega”
+
+✏ Steps yaad karne ka trick:
+
+D K V
+
+D → Distance nikaalo
+K → K nearest lo
+V → Vote / Average karo
+
+✏ Distance Formula yaad trick:
+
+“Difference square karo → Add karo → Root lo”
+
+𝑑
+=
+∑
+(
+𝑥
+𝑖
+−
+𝑦
+𝑖
+)
+2
+d=
+∑(x
+i
+	​
+
+−y
+i
+	​
+
+)
+2
+	​
+
+✏ K ka secret
+
+K = 1
+→ Har point ko copy karega
+→ Overfitting
+→ Low Bias, High Variance
+
+K = Large
+→ Sabka average lega
+→ Underfitting
+→ High Bias, Low Variance
+
+📌 Bias vs Variance
+🎯 Total Error
+𝐸
+𝑟
+𝑟
+𝑜
+𝑟
+=
+𝐵
+𝑖
+𝑎
+𝑠
+2
++
+𝑉
+𝑎
+𝑟
+𝑖
+𝑎
+𝑛
+𝑐
+𝑒
++
+𝑁
+𝑜
+𝑖
+𝑠
+𝑒
+Error=Bias
+2
++Variance+Noise
+✏ Bias yaad trick
+
+“Model simple = Model confuse”
+
+Underfitting
+
+Training error high
+
+Test error high
+
+👉 High Bias = Concept nahi samjha
+
+✏ Variance yaad trick
+
+“Model clever = Noise bhi yaad”
+
+Overfitting
+
+Training error low
+
+Test error high
+
+👉 High Variance = Ratta maar liya
+
+📌 Dart Trick (Best Memory Hack)
+
+🎯 Center target imagine karo
+
+High Bias
+→ Sab arrows ek jagah
+→ Par center se door
+
+High Variance
+→ Arrows idhar-udhar
+
+Perfect Model
+→ Center ke paas clustered
+
+📌 Model Complexity Rule (Most Important)
+
+Model complex ↑
+→ Bias ↓
+→ Variance ↑
+
+Model simple ↓
+→ Bias ↑
+→ Variance ↓
+
+Isko 100% yaad kar lo 🔥
+
+📌 10 Second Revision Formula
+
+KNN = Distance + Vote
+
+Simple model = High Bias
+
+Complex model = High Variance
+
+Balance = Best ML Model
