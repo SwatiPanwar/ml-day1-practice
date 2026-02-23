@@ -1,0 +1,70 @@
+# Day 9 - Categorical Data Encoding Notes
+
+## 🔹 Categorical Data
+
+* Words data jo numbers me nahi hota.
+* Example:
+
+  * Color: Red, Blue, Green
+  * Size: Small, Medium, Large
+  * Gender: Male, Female
+
+Machine ko sirf numbers samajh aate hain → Encoding karna padta hai.
+
+---
+
+## 1️⃣ Label Encoding (Simple Numbering)
+
+* Har word ko ek number assign karna.
+* Use: Jab categories **ordered (ordinal)** ho.
+
+**Example:**
+
+```python
+colors = ['red', 'blue', 'green', 'blue', 'red']
+encoded_colors = [1, 2, 3, 2, 1]
+print(encoded_colors)
+```
+
+**Output:** `[1, 2, 3, 2, 1]`
+
+**Note:** Agar order important nahi hai, machine confuse ho sakti hai.
+
+---
+
+## 2️⃣ One-Hot Encoding (Safe for unordered data)
+
+* Har category ke liye **ek separate column** banate hain.
+* Row me sirf jis category ka value hai usme **1**, baaki me **0**.
+* Use: Jab categories **unordered (nominal)** ho.
+
+**Example:**
+Colors: Red, Blue, Green
+
+| Red | Blue | Green |         |
+| --- | ---- | ----- | ------- |
+| 1   | 0    | 0     | → Red   |
+| 0   | 1    | 0     | → Blue  |
+| 0   | 0    | 1     | → Green |
+| 0   | 1    | 0     | → Blue  |
+| 1   | 0    | 0     | → Red   |
+
+**Python Code:**
+
+```python
+encoded_colors = [
+    [1, 0, 0],  # Red
+    [0, 1, 0],  # Blue
+    [0, 0, 1],  # Green
+    [0, 1, 0],  # Blue
+    [1, 0, 0]   # Red
+]
+```
+
+---
+
+## 🔹 Quick Trick to Remember
+
+* **Label Encoding** → Number assign (Order important)
+* **One-Hot Encoding** → Column banado (Order irrelevant)
+
