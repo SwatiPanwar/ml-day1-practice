@@ -15,28 +15,6 @@ V → Vote / Average karo
 
 “Difference square karo → Add karo → Root lo”
 
-𝑑
-=
-∑
-(
-𝑥
-𝑖
-−
-𝑦
-𝑖
-)
-2
-d=
-∑(x
-i
-	​
-
-−y
-i
-	​
-
-)
-2
 	​
 
 ✏ K ka secret
@@ -53,32 +31,7 @@ K = Large
 
 📌 Bias vs Variance
 🎯 Total Error
-𝐸
-𝑟
-𝑟
-𝑜
-𝑟
-=
-𝐵
-𝑖
-𝑎
-𝑠
-2
-+
-𝑉
-𝑎
-𝑟
-𝑖
-𝑎
-𝑛
-𝑐
-𝑒
-+
-𝑁
-𝑜
-𝑖
-𝑠
-𝑒
+
 Error=Bias
 2
 +Variance+Noise
