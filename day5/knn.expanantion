@@ -1,0 +1,30 @@
+🧠 Code Flow Samjho Simple Language Me
+
+1️⃣ Data diya (links + length)
+2️⃣ Train & test me divide kiya
+3️⃣ Scaling ki (kyunki KNN distance use karta hai) - “KNN me scaling use ki jati hai taaki all features ka equal importance rahe aur distance calculation accurate ho, nahi to large-range features dominate kar denge.”
+
+Visual Trick (Memory)
+
+Without Scaling:
+“Bada number = boss, chhota number = slave” 😅
+
+With Scaling:
+“Sab equal team members” ✅
+
+Min-Max Scaling: 0–1
+
+
+4️⃣ K=3 choose kiya
+5️⃣ Model train kiya
+6️⃣ Test data par predict kiya
+7️⃣ Accuracy check ki
+
+“Spam detection can be implemented using KNN by calculating the distance between feature vectors (number of links, email length) and classifying based on majority vote of nearest neighbors.”
+
+🧠 Important Points Yaad Rakho
+
+✔ KNN me training fast hoti hai
+✔ Prediction time heavy hota hai
+✔ Scaling mandatory hai
+✔ K cross-validation se choose karte hain
