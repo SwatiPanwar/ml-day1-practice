@@ -1,0 +1,104 @@
+## 📂 Folder: ML_Notes/Imbalanced_Data_SMOTE
+
+### 1️⃣ Imbalanced Data (Easy Notes)
+
+* **Definition:** Jab ek class ka data zyada aur dusre ka kam ho.
+* **Problem:** Model majority class pe biased ho jata hai, minority class predict kam hota hai.
+* **Examples:**
+
+  * Fraud detection: 99% normal, 1% fraud
+  * Rare disease: 95% healthy, 5% sick
+
+---
+
+### 2️⃣ Solutions (Quick Trick Table)
+
+| Method             | Description                                                |
+| ------------------ | ---------------------------------------------------------- |
+| **Under-sampling** | Majority class ka data kam karna                           |
+| **Over-sampling**  | Minority class ka data badhana                             |
+| **SMOTE**          | Synthetic data generate karke minority class balance karna |
+
+> **Trick to remember:** SMOTE = "Make Minority Over The Edge"
+
+---
+
+### 3️⃣ SMOTE Concept
+
+* **Idea:** Copy nahi, synthetic samples create karte hain.
+* **Steps:**
+
+  1. Minority class ka har point consider karo
+  2. k-nearest neighbors find karo
+  3. Random neighbor select karo
+  4. Synthetic point create karo original & neighbor ke beech
+* **Result:** Balanced dataset
+
+---
+
+### 4️⃣ SMOTE Flow Diagram
+
+```
+Minority Class Points
+        |
+        v
+Find k-Nearest Neighbors
+        |
+        v
+Choose Random Neighbor
+        |
+        v
+Generate Synthetic Point
+        |
+        v
+Add to Dataset
+        |
+        v
+Balanced Dataset → Train Model
+```
+
+> Flow trick: Identify → Neighbor → Create → Add → Train
+
+---
+
+### 5️⃣ Real-Life Use Cases
+
+1. **Credit Card Fraud Detection** - Fraud kam hota hai → SMOTE se model detect better kare
+2. **Medical Diagnosis** - Rare disease patient data kam → synthetic samples improve diagnosis
+3. **Customer Churn Prediction** - Company loss prevent → minority class predict improve
+
+---
+
+### 6️⃣ Python Example (Simple)
+
+```python
+from sklearn.datasets import make_classification
+from imblearn.over_sampling import SMOTE
+from collections import Counter
+
+# Create imbalanced dataset
+X, y = make_classification(n_samples=1000, n_features=2, n_classes=2,
+                           weights=[0.9, 0.1], random_state=42)
+print("Original dataset:", Counter(y))
+
+# Apply SMOTE
+smote = SMOTE(random_state=42)
+X_res, y_res = smote.fit_resample(X, y)
+print("After SMOTE:", Counter(y_res))
+```
+
+* **Output:**
+
+```
+Original dataset: Counter({0: 900, 1: 100})
+After SMOTE: Counter({0: 900, 1: 900})
+```
+
+---
+
+### 7️⃣ Tips / Tricks
+
+* SMOTE **sirf training data** pe apply karo.
+* Best models with SMOTE: Logistic Regression, Random Forest.
+* Extreme imbalance → SMOTE + Tomek Links/ENN combine kar sakte ho.
+
