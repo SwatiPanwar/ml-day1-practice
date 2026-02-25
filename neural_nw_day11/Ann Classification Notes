@@ -1,0 +1,134 @@
+**Folder Name:** ANN_Classification_Notes
+
+---
+
+## 1️⃣ ANN Basics (Artificial Neural Network)
+
+* **Neurons:** Basic processing unit
+* **Layers:** Input → Hidden → Output
+* **Activation Functions:** ReLU, Sigmoid, Softmax
+* **Flow:** Input → Weighted sum → Activation → Next Layer → Output
+
+---
+
+## 2️⃣ Libraries Required
+
+```python
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+```
+
+---
+
+## 3️⃣ Dummy Data (Binary Classification Example)
+
+```python
+# Features: TransactionAmount, TransactionTime
+X = np.array([[100, 10], [200, 50], [5000, 5], [50, 20], [300, 40]])
+
+# Labels: 0 = Normal, 1 = Fraud
+y = np.array([0, 0, 1, 0, 0])
+```
+
+---
+
+## 4️⃣ ANN Model Definition
+
+```python
+model = Sequential()
+
+# Hidden Layer 1
+model.add(Dense(units=4, activation='relu', input_shape=(2,)))
+
+# Hidden Layer 2
+model.add(Dense(units=4, activation='relu'))
+
+# Output Layer
+model.add(Dense(units=1, activation='sigmoid'))
+```
+
+* **Dense:** Fully connected layer
+* **units:** Number of neurons
+* **ReLU:** Activation for hidden layers
+* **Sigmoid:** Output 0-1 for binary classification
+
+---
+
+## 5️⃣ Compile the Model
+
+```python
+model.compile(optimizer='adam', 
+              loss='binary_crossentropy', 
+              metrics=['accuracy'])
+```
+
+* **optimizer='adam':** Efficient optimizer
+* **loss='binary_crossentropy':** Suitable for binary classification
+* **metrics=['accuracy']:** Track accuracy
+
+---
+
+## 6️⃣ Train the Model
+
+```python
+model.fit(X, y, epochs=100, verbose=1)
+```
+
+* **epochs=100:** Training iterations
+* **verbose=1:** Shows training progress
+
+---
+
+## 7️⃣ Prediction
+
+```python
+new_transaction = np.array([[400, 15]])
+prediction = model.predict(new_transaction)
+
+print("Fraud probability:", prediction[0][0])
+print("Prediction (0=Normal, 1=Fraud):", int(prediction[0][0]>0.5))
+```
+
+* Output is probability → convert to 0/1 using threshold 0.5
+
+---
+
+## 8️⃣ Smart Flow Diagram
+
+```
+Input Layer (2 features) 
+        ↓
+Hidden Layer 1 (4 neurons, ReLU)
+        ↓
+Hidden Layer 2 (4 neurons, ReLU)
+        ↓
+Output Layer (1 neuron, Sigmoid)
+        ↓
+Binary Prediction (0 or 1)
+```
+
+---
+
+## 9️⃣ Real-Life Use Case
+
+* **Credit Card Fraud Detection**
+* **Email Spam Detection**
+* **Customer Churn Prediction**
+* **Medical Diagnosis (e.g., Disease: Yes/No)**
+
+**Steps:**
+
+1. Collect features (amount, time, location, etc.)
+2. Preprocess data (scaling, normalization)
+3. Train ANN
+4. Predict new cases
+5. Evaluate performance
+
+---
+
+**Tips / Tricks:**
+
+* Start with 1-2 hidden layers for simple problems
+* ReLU works best for hidden layers
