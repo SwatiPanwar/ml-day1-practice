@@ -1,0 +1,17 @@
+Input Image (28x28 pixels)
+        |
+   Conv Layer → detect edges
+        |
+     ReLU → keep useful features
+        |
+   Pooling → keep strongest parts
+        |
+   Conv Layer → detect complex patterns
+        |
+     Pooling → again reduce size
+        |
+     Flatten → 1D vector
+        |
+ Fully Connected → combine features
+        |
+   Output Layer → Cat or Dog?
