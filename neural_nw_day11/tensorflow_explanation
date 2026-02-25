@@ -1,0 +1,130 @@
+# TensorFlow User Input Fraud Detection - Smart Notes
+
+---
+
+## 1️⃣ Libraries Import
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, Sequential
+import numpy as np
+```
+
+* tensorflow → ML / neural networks
+* layers → neurons/layers create
+* Sequential → layer-by-layer model
+* numpy → numerical arrays
+
+**Trick:** Think of numpy = Excel sheet + math
+
+---
+
+## 2️⃣ Dummy Training Data
+
+```python
+X_train = np.array([[100,10],[200,50],[5000,5],[50,60],[4000,20]])
+y_train = np.array([0,0,1,0,1])
+```
+
+* X_train = input features [Amount, Time]
+* y_train = labels (0=Normal,1=Fraud)
+
+**Trick:** Small data for example, real data = huge
+
+---
+
+## 3️⃣ Build Model
+
+```python
+model = Sequential([
+    layers.Dense(4, activation='relu', input_shape=(2,)),
+    layers.Dense(1, activation='sigmoid')
+])
+```
+
+* Hidden layer → 4 neurons, ReLU → negative ignore, positive pass
+* Output layer → 1 neuron, Sigmoid → probability 0–1
+
+**Trick:** Hidden = learn patterns, Sigmoid = probability
+
+---
+
+## 4️⃣ Compile Model
+
+```python
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+```
+
+* optimizer = Adam → adjusts weights smartly
+* loss = binary_crossentropy → error for 0/1
+* metrics = accuracy → check correctness
+
+**Analogy:** Teacher checking error + adjusting weights
+
+---
+
+## 5️⃣ Train Model
+
+```python
+model.fit(X_train, y_train, epochs=50, verbose=0)
+```
+
+* epochs=50 → dataset 50 times train
+* verbose=0 → quiet mode
+
+**Analogy:** Student practicing repeatedly to learn patterns
+
+---
+
+## 6️⃣ User Input
+
+```python
+amount = float(input("Enter transaction amount: "))
+time = float(input("Enter transaction time (hour 0-23): "))
+user_input = np.array([[amount, time]])
+```
+
+* Take input from user
+* Convert to array → model needs input shape (1,2)
+
+**Analogy:** Customer does transaction → amount + time
+
+---
+
+## 7️⃣ Predict Fraud Probability
+
+```python
+prob = model.predict(user_input)[0][0]
+prob_percent = prob*100
+```
+
+* Predict → Sigmoid gives 0–1 probability
+* Convert to percentage
+
+**Example:** prob=0.88 → 88% chance of fraud
+
+---
+
+## 8️⃣ Decision Threshold
+
+```python
+if prob>0.5:
+    print("⚠️ Alert: Likely FRAUD!")
+else:
+    print("✅ Transaction NORMAL")
+```
+
+* Threshold = 0.5 → above = Fraud, below = Normal
+* Sigmoid output = smooth S-curve probability
+
+---
+
+## 9️⃣ Daily Life Analogy Summary
+
+* TensorFlow = Bank smart employee
+* Input = transaction amount & time
+* Hidden layer + ReLU → notices patterns
+* Output layer + Sigmoid → probability 0–1
+* Decision = >0.5 → Fraud, ≤0.5 → Normal
+
+**Trick:** Sigmoid = Smooth S-curve → probability, threshold 0.5
